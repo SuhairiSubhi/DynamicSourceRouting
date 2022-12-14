@@ -7,4 +7,5 @@
     <org.eventb.core.carrierSet name="+" org.eventb.core.identifier="TYPEPACKET"/>
     <org.eventb.core.axiom name="," org.eventb.core.label="axm1" org.eventb.core.predicate="RREP ∈ TYPEPACKET"/>
     <org.eventb.core.axiom name="-" org.eventb.core.label="axm2" org.eventb.core.predicate="RREQ ∈ TYPEPACKET"/>
+    <org.eventb.core.axiom name="." org.eventb.core.label="axm3" org.eventb.core.predicate="RREP ≠ RREQ"/>
 </org.eventb.core.contextFile>
