@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="Protocole_1"/>
+    <org.eventb.core.seesContext name="*" org.eventb.core.target="ProtocoleContext_0"/>
+    <org.eventb.core.variable name="(" org.eventb.core.identifier="packets_in_transit"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="nodes"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="id_packet"/>
+    <org.eventb.core.variable name="1" org.eventb.core.identifier="type_packet"/>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="source_node_packet"/>
+    <org.eventb.core.variable name="4" org.eventb.core.identifier="destination_node_packet"/>
+    <org.eventb.core.variable name=";" org.eventb.core.identifier="randCounter"/>
+    <org.eventb.core.variable name="H" org.eventb.core.identifier="node_packet"/>
+    <org.eventb.core.event name="I" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="routing_table_node ≔ ∅" org.eventb.core.label="act10"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="K" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="L" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="process_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="process_packet"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_packet_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_packet_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_packet_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_packet_event"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="destination_node ∈ routing_table_node[ {source_node} ]"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="Q" org.eventb.core.identifier="routing_table_node"/>
+    <org.eventb.core.invariant name="R" org.eventb.core.label="inv1" org.eventb.core.predicate="routing_table_node ∈ nodes ↔ nodes" org.eventb.core.theorem="true"/>
+    <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="add_node_to_routing_table_event">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="node ∈ nodes"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="node"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="node_to_add"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="node_to_add ∈ nodes"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="routing_table_node ≔ routing_table_node  ∪ { node ↦ node_to_add }" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="node ≠ node_to_add"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="node_to_add ∉ routing_table_node[ {node} ]"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="remove_node_to_routing_table_event">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="node"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="node ∈ nodes"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="node_to_remove"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="routing_table_node ≔ routing_table_node ∖ { node ↦ node_to_remove }" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="node_to_remove ∈ nodes"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="node ≠ node_to_remove"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="node_to_remove ∈ routing_table_node[ {node} ]"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
