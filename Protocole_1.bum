@@ -21,11 +21,6 @@
         <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="node_packet(received_p) = destination_node"/>
         <org.eventb.core.action name=")" org.eventb.core.assignment="node_packet(p) ≔ destination_node" org.eventb.core.label="act8"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="@" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="process_packet">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="process_packet"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="node_packet(p) = destination_node_packet(p)"/>
-        <org.eventb.core.guard name=")" org.eventb.core.label="grd6" org.eventb.core.predicate="node_packet(q) = destination_node_packet(q)"/>
-    </org.eventb.core.event>
     <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
     </org.eventb.core.event>

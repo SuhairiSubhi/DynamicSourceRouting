@@ -21,9 +21,6 @@
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="packet_direct_path_node :∣ ∀ s, d · packet_direct_path_node(s ↦ received_p) = d ⇒ packet_direct_path_node(d ↦ p) = s" org.eventb.core.label="act9"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="L" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="process_packet">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="process_packet"/>
-    </org.eventb.core.event>
     <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
     </org.eventb.core.event>
