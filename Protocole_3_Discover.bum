@@ -13,12 +13,14 @@
     <org.eventb.core.variable name="Q" org.eventb.core.identifier="routing_table_node"/>
     <org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
         <org.eventb.core.action name="'" org.eventb.core.assignment="path_header_packet ≔ ∅" org.eventb.core.label="act11"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="routes ≔ ∅" org.eventb.core.label="act12"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="routes ≔ routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act9"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
@@ -41,4 +43,6 @@
     </org.eventb.core.event>
     <org.eventb.core.variable name="[" org.eventb.core.identifier="path_header_packet"/>
     <org.eventb.core.invariant name="\" org.eventb.core.label="inv1" org.eventb.core.predicate="path_header_packet ∈ packets_in_transit ↔ (nodes ↔ nodes)"/>
+    <org.eventb.core.variable name="]" org.eventb.core.identifier="routes"/>
+    <org.eventb.core.invariant name="^" org.eventb.core.label="inv2" org.eventb.core.predicate="routes ∈ ℙ(nodes ↔ nodes) "/>
 </org.eventb.core.machineFile>
