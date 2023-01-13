@@ -33,7 +33,7 @@
         <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="destination_node ∈ routing_table_node[ {source_node} ]"/>
     </org.eventb.core.event>
     <org.eventb.core.variable name="Q" org.eventb.core.identifier="routing_table_node"/>
-    <org.eventb.core.invariant name="R" org.eventb.core.label="inv1" org.eventb.core.predicate="routing_table_node ∈ nodes ↔ nodes" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="R" org.eventb.core.label="inv1" org.eventb.core.predicate="routing_table_node ∈  nodes ↔ nodes" org.eventb.core.theorem="true"/>
     <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="add_node_to_routing_table_event">
         <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="node ∈ nodes"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="node"/>
