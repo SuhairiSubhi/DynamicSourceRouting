@@ -46,79 +46,85 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="send_event/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p5"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p6"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p7"/>
-                    </org.eventb.core.prAnte>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬source_node=destination_node">
-            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
-            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
-            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
-            <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
-            <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nodes⊆NODES">
-            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
-            <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="RREQ∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="source_node≠destination_node">
-            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
-            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
-            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-    </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="send_event/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p7,p1,p6,p3,p5,p2,p8,p11,p12">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p6"/>
+                            </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬source_node=destination_node">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+            <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
+            <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nodes⊆NODES">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="source_node≠destination_node">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="send_event/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -132,24 +138,24 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="RREP≠RREQ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬source_node=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="source_node∈nodes"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="type_packet{p ↦ RREQ}∈packets_in_transit∪{p} ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="source_node≠destination_node"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NODES,PACKETS">
         <org.eventb.core.lang name="L"/>
@@ -176,24 +182,28 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="send_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p7,p1,p6,p3,p5,p2,p8,p11,p12">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -207,24 +217,24 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="source_node_packet{p ↦ source_node}∈packets_in_transit∪{p} ⇸ nodes"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="RREP≠RREQ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬source_node=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="source_node∈nodes"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="source_node≠destination_node"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NODES,PACKETS">
         <org.eventb.core.lang name="L"/>
@@ -251,24 +261,28 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="send_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p7,p1,p6,p3,p5,p2,p8,p11,p12">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -282,24 +296,24 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="RREP≠RREQ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="destination_node_packet{p ↦ destination_node}∈packets_in_transit∪{p} ⇸ nodes"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="source_node∈nodes"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="source_node≠destination_node"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NODES">
         <org.eventb.core.lang name="L"/>
@@ -381,20 +395,19 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p5">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p6">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p16"/>
                                 <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p3"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p10,p1,p7,p4,p3,p8,p5,p9,p2,p12,p17">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p11,p1,p9,p5,p3,p8,p6,p10,p2,p12,p13,p16">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -402,8 +415,9 @@
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -416,43 +430,41 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
         <org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_p∈packets_in_transit"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREP≠RREQ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node_packet∈PACKETS ⇸ NODES"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{received_p} ⩤ id_packet∈packets_in_transit ∖ {received_p} ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p5">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p6">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p16"/>
                                 <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p3"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p10,p1,p7,p4,p3,p8,p5,p9,p2,p12,p17">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p11,p1,p9,p5,p3,p8,p6,p10,p2,p12,p13,p16">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -460,8 +472,9 @@
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -474,43 +487,41 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
         <org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_p∈packets_in_transit"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREP≠RREQ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node_packet∈PACKETS ⇸ NODES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{received_p} ⩤ type_packet∈packets_in_transit ∖ {received_p} ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p5">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p6">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p16"/>
                                 <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p3"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p10,p1,p7,p4,p3,p8,p5,p9,p2,p12,p17">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p11,p1,p9,p5,p3,p8,p6,p10,p2,p12,p13,p16">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -518,8 +529,9 @@
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -532,26 +544,25 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
         <org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_p∈packets_in_transit"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREP≠RREQ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node_packet∈PACKETS ⇸ NODES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{received_p} ⩤ source_node_packet∈packets_in_transit ∖ {received_p} ⇸ nodes"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/act3/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="NODES,PACKETS">
         <org.eventb.core.lang name="L"/>
@@ -588,20 +599,19 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p15"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p16"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p5">
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with destination_node_packet(received_p)=destination_node" org.eventb.core.prHyps="p6">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p17"/>
+                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p16"/>
                                 <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p3"/>
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p10,p1,p7,p4,p3,p8,p5,p9,p2,p12,p17">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p7,p11,p1,p9,p5,p3,p8,p6,p10,p2,p12,p13,p16">
                                     <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -609,8 +619,9 @@
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -623,26 +634,25 @@
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="destination_node∈nodes"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
         <org.eventb.core.prPred name="p8" org.eventb.core.predicate="received_p∈packets_in_transit"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREP≠RREQ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="received_p∈dom(destination_node_packet)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="destination_node_packet(received_p)∈nodes"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node_packet∈PACKETS ⇸ NODES"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{received_p} ⩤ destination_node_packet∈packets_in_transit ∖ {received_p} ⇸ nodes"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="receive_event/act4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODES,PACKETS">
         <org.eventb.core.lang name="L"/>
@@ -2795,113 +2805,111 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_node_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_node_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="add_node_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8,p9"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8,p9"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p12"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p6,p1,p5,p3,p8,p9">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p7,p1,p6,p4,p8,p9,p10">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.prIdent name="id_packet" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
@@ -2912,45 +2920,49 @@
         <org.eventb.core.prIdent name="source_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="n∉nodes"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="nodes⊆NODES"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="n∈NODES"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬n∈nodes"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="RREP≠RREQ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="n∉nodes"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="n∈NODES"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬n∈nodes"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes∪{n}"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="add_node_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
-                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8,p9"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8,p9"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p12"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p13"/>
-                        <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p14"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p6,p1,p5,p3,p8,p9">
-                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                                <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p13"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p7,p1,p6,p4,p8,p9,p10">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
                         </org.eventb.core.prRule>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
         <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.prIdent name="id_packet" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
@@ -2961,199 +2973,187 @@
         <org.eventb.core.prIdent name="source_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="n∉nodes"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="n∉nodes"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="nodes⊆NODES"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes∪{n}"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="RREP∈TYPEPACKET"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="n∈NODES"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬n∈nodes"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬RREP=RREQ"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="RREP≠RREQ"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RREQ∈TYPEPACKET"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="n∈NODES"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬n∈nodes"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_packet_event/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_packet_event/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_packet_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="lose_packet_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p2"/>
-                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p3"/>
-                        <org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p4"/>
-                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p5"/>
+                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
                     </org.eventb.core.prAnte>
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
             <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
             <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nodes⊆NODES">
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nodes⊆NODES">
             <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
             <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="RREP∈TYPEPACKET">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="RREQ∈TYPEPACKET">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
             <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="¬RREP=RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="RREP≠RREQ">
-            <org.eventb.core.prIdent name="RREP" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
-            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
         <org.eventb.core.lang name="L"/>
@@ -3685,5 +3685,278 @@
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="create_rreq_packet/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p6"/>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬RREQ=BASIC">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬source_node=destination_node">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="packets_in_transit⊆PACKETS">
+            <org.eventb.core.prIdent name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
+            <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nodes⊆NODES">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="source_node≠destination_node">
+            <org.eventb.core.prIdent name="NODES" org.eventb.core.type="ℙ(NODES)"/>
+            <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+            <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}">
+            <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+            <org.eventb.core.prIdent name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="create_rreq_packet/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="id_packet" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
+        <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.prIdent name="randCounter" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="source_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="type_packet{p ↦ RREQ}∈packets_in_transit∪{p} ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="create_rreq_packet/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="id_packet" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
+        <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.prIdent name="randCounter" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="source_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="source_node_packet{p ↦ source_node}∈packets_in_transit∪{p} ⇸ nodes"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="create_rreq_packet/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p15"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p8,p1,p7,p4,p6,p2,p9,p11,p12,p13">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="destination_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="id_packet" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
+        <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.prIdent name="randCounter" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="source_node_packet" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.prIdent name="type_packet" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="source_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="destination_node∈nodes"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="destination_node_packet{p ↦ destination_node}∈packets_in_transit∪{p} ⇸ nodes"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="id_packet∈packets_in_transit ⤔ ℕ1"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="destination_node_packet∈packets_in_transit ⇸ nodes"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="type_packet∈packets_in_transit ⇸ TYPEPACKET"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="create_rreq_packet/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="NODES,PACKETS,TYPEPACKET">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TYPEPACKET,{RREQ},{BASIC}))" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'">
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p10"/>
+                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p4,p1,p5,p7,p8,p9">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="BASIC" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="RREQ" org.eventb.core.type="TYPEPACKET"/>
+        <org.eventb.core.prIdent name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(NODES)"/>
+        <org.eventb.core.prIdent name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.prIdent name="packets_in_transit" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.prIdent name="randCounter" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="randCounter+1∈ℕ1"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="destination_node∈nodes"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TYPEPACKET,{RREQ},{BASIC})"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬RREQ=BASIC"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬source_node=destination_node"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="randCounter∈ℕ1"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="packets_in_transit⊆PACKETS"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="nodes⊆NODES"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="source_node∈nodes"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="source_node≠destination_node"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="TYPEPACKET={RREQ,BASIC}"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>

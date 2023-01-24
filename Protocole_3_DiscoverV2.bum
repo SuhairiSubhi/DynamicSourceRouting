@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="Protocole_2_RoutingTableV2"/>
+    <org.eventb.core.seesContext name="*" org.eventb.core.target="ProtocoleContext_0"/>
+    <org.eventb.core.variable name="(" org.eventb.core.identifier="packets_in_transit"/>
+    <org.eventb.core.variable name="+" org.eventb.core.identifier="nodes"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="id_packet"/>
+    <org.eventb.core.variable name="1" org.eventb.core.identifier="type_packet"/>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="source_node_packet"/>
+    <org.eventb.core.variable name="4" org.eventb.core.identifier="destination_node_packet"/>
+    <org.eventb.core.variable name=";" org.eventb.core.identifier="randCounter"/>
+    <org.eventb.core.variable name="H" org.eventb.core.identifier="node_packet"/>
+    <org.eventb.core.variable name="P" org.eventb.core.identifier="routes"/>
+    <org.eventb.core.variable name="S" org.eventb.core.identifier="network_initialized"/>
+    <org.eventb.core.event name="T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="path_header_packet ≔ ∅" org.eventb.core.label="act12"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="discovered_routes ≔ ∅" org.eventb.core.label="act13"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="discovered_routes ≔ discovered_routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act6"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="W" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="X" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Y" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_packet_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_packet_event"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="Z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_packet_event">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_packet_event"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="path_header_packet ≔ path_header_packet ∪ { p ↦ { source_node ↦ destination_node } }" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_to_route">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_to_route"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="\" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="initialize_network">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="initialize_network"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="]" org.eventb.core.identifier="path_header_packet"/>
+    <org.eventb.core.invariant name="_" org.eventb.core.label="inv1" org.eventb.core.predicate="path_header_packet ∈ packets_in_transit ↔ (nodes ↔ nodes)"/>
+    <org.eventb.core.variable name="`" org.eventb.core.identifier="discovered_routes"/>
+    <org.eventb.core.invariant name="a" org.eventb.core.label="inv2" org.eventb.core.predicate="discovered_routes ∈ ℙ(nodes ↔ nodes)"/>
+</org.eventb.core.machineFile>
