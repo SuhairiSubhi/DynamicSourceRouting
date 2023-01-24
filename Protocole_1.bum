@@ -12,9 +12,13 @@
     <org.eventb.core.event name="=" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
         <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet ≔ ∅" org.eventb.core.label="act9"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
+    <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rreq_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rreq_packet"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ source_node" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_basic_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_basic_packet"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ source_node" org.eventb.core.label="act5"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>

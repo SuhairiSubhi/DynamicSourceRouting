@@ -14,8 +14,8 @@
         <org.eventb.core.action name="'" org.eventb.core.assignment="routes ≔ ∅ " org.eventb.core.label="act10"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="network_initialized ≔ FALSE" org.eventb.core.label="act11"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
+    <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rreq_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rreq_packet"/>
         <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="network_initialized = TRUE"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="K" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
@@ -56,5 +56,9 @@
     <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="initialize_network">
         <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="network_initialized = FALSE"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="network_initialized ≔ TRUE" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_basic_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_basic_packet"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="network_initialized = TRUE"/>
     </org.eventb.core.event>
 </org.eventb.core.machineFile>

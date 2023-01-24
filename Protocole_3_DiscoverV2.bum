@@ -16,12 +16,13 @@
         <org.eventb.core.action name="'" org.eventb.core.assignment="path_header_packet ≔ ∅" org.eventb.core.label="act12"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="discovered_routes ≔ ∅" org.eventb.core.label="act13"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="send_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="send_event"/>
+    <org.eventb.core.event name="U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rreq_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rreq_packet"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
+    <org.eventb.core.event name="V" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rreq_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="discovered_routes ≔ discovered_routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act6"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="type_packet(received_p) = RREQ"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="W" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
@@ -46,4 +47,11 @@
     <org.eventb.core.invariant name="_" org.eventb.core.label="inv1" org.eventb.core.predicate="path_header_packet ∈ packets_in_transit ↔ (nodes ↔ nodes)"/>
     <org.eventb.core.variable name="`" org.eventb.core.identifier="discovered_routes"/>
     <org.eventb.core.invariant name="a" org.eventb.core.label="inv2" org.eventb.core.predicate="discovered_routes ∈ ℙ(nodes ↔ nodes)"/>
+    <org.eventb.core.event name="b" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_basic_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_basic_packet"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_basic_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="type_packet(received_p) = BASIC"/>
+    </org.eventb.core.event>
 </org.eventb.core.machineFile>

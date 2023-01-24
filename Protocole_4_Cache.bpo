@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="3">
+<org.eventb.core.poFile org.eventb.core.poStamp="20">
     <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="2">
         <org.eventb.core.poIdentifier name="PACKETS" org.eventb.core.type="ℙ(PACKETS)"/>
         <org.eventb.core.poIdentifier name="TYPEPACKET" org.eventb.core.type="ℙ(TYPEPACKET)"/>
@@ -51,22 +51,42 @@
         <org.eventb.core.poIdentifier name="type_packet'" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packeu" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packeu" org.eventb.core.poStamp="2"/>
-    <org.eventb.core.poSequent name="receive_event/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="3">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packev"/>
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packev" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="4">
+        <org.eventb.core.poIdentifier name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.poIdentifier name="destination_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="source_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="randCounter'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="id_packet'" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="packets_in_transit'" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.poIdentifier name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.poIdentifier name="type_packet'" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packev" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packev" org.eventb.core.poStamp="4">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="source_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#2|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="destination_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#2|org.eventb.core.guard#*"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="source_node≠destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#2|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#2|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#J|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="¬(∃n1⦂NODES,r⦂ℙ(NODES×NODES),route⦂ℙ(ℙ(NODES×NODES))·n1∈nodes∧route∈cache_node[{source_node}]∧r∈route∧n1 ↦ destination_node∈r)" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#b|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="receive_rreq_packet/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="10">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packew"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cache_node∪{source_node_packet(received_p) ↦ path_header_packet[{received_p}]}∈nodes ↔ ℙ(nodes ↔ nodes)" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.invariant#k"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/DynamicSourceRouting/Protocole_3_DiscoverV2.bum|org.eventb.core.machineFile#Protocole_3_DiscoverV2|org.eventb.core.event#V"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#c"/>
         <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.invariant#k"/>
-        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poSequent#receive_event\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poSequent#receive_rreq_packet\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poSequent name="receive_event/act7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="3">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packev"/>
+    <org.eventb.core.poSequent name="receive_rreq_packet/act7/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="10">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packew"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="received_p∈dom(source_node_packet)∧source_node_packet∈PACKETS ⇸ NODES" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#c|org.eventb.core.action#("/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#c|org.eventb.core.action#("/>
-        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packev"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packew"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packev" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packew" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="destination_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.poIdentifier name="discovered_routes'" org.eventb.core.type="ℙ(ℙ(NODES×NODES))"/>
         <org.eventb.core.poIdentifier name="source_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
@@ -77,15 +97,16 @@
         <org.eventb.core.poIdentifier name="received_p" org.eventb.core.type="PACKETS"/>
         <org.eventb.core.poIdentifier name="type_packet'" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packev" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packev" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packew" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packew" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="destination_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="received_p∈packets_in_transit" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#+"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#,"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="node_packet(received_p)=destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_1.bum|org.eventb.core.machineFile#Protocole_1|org.eventb.core.event#?|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#K|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="type_packet(received_p)=RREQ" org.eventb.core.source="/DynamicSourceRouting/Protocole_3_DiscoverV2.bum|org.eventb.core.machineFile#Protocole_3_DiscoverV2|org.eventb.core.event#V|org.eventb.core.guard#)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="lose_node_event/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="3">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packew"/>
+    <org.eventb.core.poSequent name="lose_node_event/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="10">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packex"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cache_node∈nodes ∖ {n} ↔ ℙ(nodes ∖ {n} ↔ nodes ∖ {n})" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.invariant#k"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/DynamicSourceRouting/Protocole_3_DiscoverV2.bum|org.eventb.core.machineFile#Protocole_3_DiscoverV2|org.eventb.core.event#W"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#d"/>
@@ -93,16 +114,16 @@
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poSequent#lose_node_event\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packew" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packex" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
         <org.eventb.core.poIdentifier name="n" org.eventb.core.type="NODES"/>
         <org.eventb.core.poIdentifier name="nodes'" org.eventb.core.type="ℙ(NODES)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packew" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packew" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packex" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packex" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#8|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#L|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poSequent name="add_node_event/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="3">
-        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packex"/>
+    <org.eventb.core.poSequent name="add_node_event/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="10">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTALLHYPdestination_node_packey"/>
         <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="cache_node∈nodes∪{n} ↔ ℙ(nodes∪{n} ↔ nodes∪{n})" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.invariant#k"/>
         <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/DynamicSourceRouting/Protocole_3_DiscoverV2.bum|org.eventb.core.machineFile#Protocole_3_DiscoverV2|org.eventb.core.event#X"/>
         <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#e"/>
@@ -110,31 +131,31 @@
         <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poSequent#add_node_event\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
         <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
     </org.eventb.core.poSequent>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packex" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packey" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="n" org.eventb.core.type="NODES"/>
         <org.eventb.core.poIdentifier name="nodes'" org.eventb.core.type="ℙ(NODES)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packex" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packex" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packey" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packey" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n∉nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#9|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n∈NODES" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#9|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#M|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packey" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packez" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="packets_in_transit'" org.eventb.core.type="ℙ(PACKETS)"/>
         <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PACKETS"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packey" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packey" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packez" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packez" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈packets_in_transit" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#:|org.eventb.core.guard#'"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#N|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packez" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe{" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="source_node" org.eventb.core.type="NODES"/>
         <org.eventb.core.poIdentifier name="path_header_packet'" org.eventb.core.type="ℙ(PACKETS×ℙ(NODES×NODES))"/>
         <org.eventb.core.poIdentifier name="node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
         <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PACKETS"/>
         <org.eventb.core.poIdentifier name="destination_node" org.eventb.core.type="NODES"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packez" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packez" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe{" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe{" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="source_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_1.bum|org.eventb.core.machineFile#Protocole_1|org.eventb.core.event#G|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="destination_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_1.bum|org.eventb.core.machineFile#Protocole_1|org.eventb.core.event#G|org.eventb.core.guard#-"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="source_node≠destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_1.bum|org.eventb.core.machineFile#Protocole_1|org.eventb.core.event#G|org.eventb.core.guard#0"/>
@@ -143,23 +164,66 @@
         <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#O|org.eventb.core.guard#("/>
         <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="source_node ↦ destination_node∈routes" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#O|org.eventb.core.guard#)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe{" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe|" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="node1" org.eventb.core.type="NODES"/>
         <org.eventb.core.poIdentifier name="node2" org.eventb.core.type="NODES"/>
         <org.eventb.core.poIdentifier name="routes'" org.eventb.core.type="ℙ(NODES×NODES)"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe{" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe{" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe|" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe\|" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="node1∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#R|org.eventb.core.guard#)"/>
         <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="node2∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#R|org.eventb.core.guard#*"/>
         <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="node1≠node2" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#R|org.eventb.core.guard#-"/>
         <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="node1 ↦ node2∉routes" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#R|org.eventb.core.guard#."/>
         <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="network_initialized=FALSE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#R|org.eventb.core.guard#+"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe|" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe}" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="10">
         <org.eventb.core.poIdentifier name="network_initialized'" org.eventb.core.type="BOOL"/>
     </org.eventb.core.poPredicateSet>
-    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe|" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe\|" org.eventb.core.poStamp="3">
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe}" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe}" org.eventb.core.poStamp="10">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="network_initialized=FALSE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#U|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="create_basic_packet/grd6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="20">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTHYPdestination_node_packe~destination_nodk"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(cache_node[{source_node}])" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#l|org.eventb.core.guard#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#l|org.eventb.core.guard#("/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTHYPdestination_node_packe~destination_nodk"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packe~" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="19">
+        <org.eventb.core.poIdentifier name="source_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.poIdentifier name="destination_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="source_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="packets_in_transit'" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.poIdentifier name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.poIdentifier name="type_packet'" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPdestination_node_packe~destination_nodk" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packe~" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="source_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#&gt;|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="destination_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#&gt;|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="source_node≠destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#&gt;|org.eventb.core.guard#."/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="p∈PACKETS ∖ packets_in_transit" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#&gt;|org.eventb.core.guard#\/"/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#V|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packe~" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTHYPdestination_node_packe~destination_nodk" org.eventb.core.poStamp="20">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="card(cache_node[{source_node}])&gt;0" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.event#l|org.eventb.core.guard#("/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTIDENTdestination_node_packf'" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="destination_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="source_node_packet'" org.eventb.core.type="ℙ(PACKETS×NODES)"/>
+        <org.eventb.core.poIdentifier name="id_packet'" org.eventb.core.type="ℙ(PACKETS×ℤ)"/>
+        <org.eventb.core.poIdentifier name="packets_in_transit'" org.eventb.core.type="ℙ(PACKETS)"/>
+        <org.eventb.core.poIdentifier name="destination_node" org.eventb.core.type="NODES"/>
+        <org.eventb.core.poIdentifier name="received_p" org.eventb.core.type="PACKETS"/>
+        <org.eventb.core.poIdentifier name="type_packet'" org.eventb.core.type="ℙ(PACKETS×TYPEPACKET)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPdestination_node_packf'" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#EVTIDENTdestination_node_packf'" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="destination_node∈nodes" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#)"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="received_p∈packets_in_transit" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#+"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="destination_node_packet(received_p)=destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_0.bum|org.eventb.core.machineFile#Protocole_0|org.eventb.core.event#6|org.eventb.core.guard#,"/>
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="node_packet(received_p)=destination_node" org.eventb.core.source="/DynamicSourceRouting/Protocole_1.bum|org.eventb.core.machineFile#Protocole_1|org.eventb.core.event#?|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="network_initialized=TRUE" org.eventb.core.source="/DynamicSourceRouting/Protocole_2_RoutingTableV2.bum|org.eventb.core.machineFile#Protocole_2_RoutingTableV2|org.eventb.core.event#K|org.eventb.core.guard#("/>
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="type_packet(received_p)=BASIC" org.eventb.core.source="/DynamicSourceRouting/Protocole_3_DiscoverV2.bum|org.eventb.core.machineFile#Protocole_3_DiscoverV2|org.eventb.core.event#c|org.eventb.core.guard#("/>
     </org.eventb.core.poPredicateSet>
     <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/DynamicSourceRouting/Protocole_4_Cache.bpo|org.eventb.core.poFile#Protocole_4_Cache|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="2">
         <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="cache_node∈nodes ↔ ℙ(nodes ↔ nodes)" org.eventb.core.source="/DynamicSourceRouting/Protocole_4_Cache.bum|org.eventb.core.machineFile#Protocole_4_Cache|org.eventb.core.invariant#k"/>
