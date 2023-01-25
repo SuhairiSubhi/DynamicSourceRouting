@@ -40,6 +40,7 @@
         <org.eventb.core.parameter name="'" org.eventb.core.identifier="source_node"/>
         <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
         <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="source_node ∈ nodes"/>
+        <org.eventb.core.guard name="3" org.eventb.core.label="grd7" org.eventb.core.predicate="p ∈ packets_in_transit"/>
         <org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="destination_node ∈ nodes"/>
         <org.eventb.core.guard name="0" org.eventb.core.label="grd5" org.eventb.core.predicate="source_node ≠ destination_node"/>
         <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="node_packet(p) = source_node"/>

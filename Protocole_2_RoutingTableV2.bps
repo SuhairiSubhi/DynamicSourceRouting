@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
     <org.eventb.core.psStatus name="add_node_event/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="77" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="forward_rreq_or_basic_packet/grd9/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="77" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="forward_rrep/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="77" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="forward_rreq_or_basic_packet/grd9/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="82" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="forward_rrep/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="81" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="add_node_to_route/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="77" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>

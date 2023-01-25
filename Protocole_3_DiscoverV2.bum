@@ -25,10 +25,12 @@
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep_or_basic_packet"/>
         <org.eventb.core.guard name="(" org.eventb.core.label="grd8" org.eventb.core.predicate="type_packet(received_p) = RREP"/>
         <org.eventb.core.action name=")" org.eventb.core.assignment="discovered_routes ≔ discovered_routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="path_header_packet ≔ { received_p } ⩤ path_header_packet" org.eventb.core.label="act8"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="h" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep_or_basic_packet"/>
         <org.eventb.core.guard name="(" org.eventb.core.label="grd8" org.eventb.core.predicate="type_packet(received_p) = BASIC"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="path_header_packet ≔ { received_p } ⩤ path_header_packet" org.eventb.core.label="act7"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="X" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>
@@ -40,15 +42,15 @@
     <org.eventb.core.event name="Z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rreq">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rreq_or_basic_packet"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="path_header_packet ≔ path_header_packet ∪ { p ↦ { source_node ↦ destination_node } }" org.eventb.core.label="act4"/>
-        <org.eventb.core.guard name=")" org.eventb.core.label="grd10" org.eventb.core.predicate="type_packet(p) = RREQ"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd11" org.eventb.core.predicate="type_packet(p) = RREQ"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="g" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rreq_or_basic_packet"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="type_packet(p) = BASIC"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="type_packet(p) = BASIC"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="e" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rrep">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rrep"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="type_packet(p) = RREP"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd11" org.eventb.core.predicate="type_packet(p) = RREP"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="[" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_to_route">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_to_route"/>

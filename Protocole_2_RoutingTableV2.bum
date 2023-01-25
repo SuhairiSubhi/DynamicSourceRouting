@@ -34,7 +34,7 @@
     </org.eventb.core.event>
     <org.eventb.core.event name="O" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rreq_or_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_packet_event"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="network_initialized = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="network_initialized = TRUE"/>
         <org.eventb.core.guard name="*" org.eventb.core.label="grd9" org.eventb.core.predicate="type_packet(p) ≠ RREP"/>
         <org.eventb.core.guard name=")" org.eventb.core.label="grd8" org.eventb.core.predicate="(source_node ↦ destination_node) ∈ routes"/>
     </org.eventb.core.event>
@@ -42,7 +42,7 @@
     <org.eventb.core.invariant name="Q" org.eventb.core.label="inv1" org.eventb.core.predicate="routes ∈ nodes ↔ nodes"/>
     <org.eventb.core.event name="X" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rrep">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_packet_event"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd7" org.eventb.core.predicate="network_initialized = TRUE"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd10" org.eventb.core.predicate="network_initialized = TRUE"/>
         <org.eventb.core.guard name=")" org.eventb.core.label="grd8" org.eventb.core.predicate="type_packet(p) = RREP"/>
         <org.eventb.core.guard name="*" org.eventb.core.label="grd9" org.eventb.core.predicate="(destination_node ↦ source_node) ∈ routes"/>
     </org.eventb.core.event>
