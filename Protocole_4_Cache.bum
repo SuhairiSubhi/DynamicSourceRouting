@@ -4,7 +4,6 @@
     <org.eventb.core.seesContext name="*" org.eventb.core.target="ProtocoleContext_0"/>
     <org.eventb.core.variable name="(" org.eventb.core.identifier="packets_in_transit"/>
     <org.eventb.core.variable name="+" org.eventb.core.identifier="nodes"/>
-    <org.eventb.core.variable name="-" org.eventb.core.identifier="id_packet"/>
     <org.eventb.core.variable name="1" org.eventb.core.identifier="type_packet"/>
     <org.eventb.core.variable name="3" org.eventb.core.identifier="source_node_packet"/>
     <org.eventb.core.variable name="4" org.eventb.core.identifier="destination_node_packet"/>
@@ -28,9 +27,6 @@
     <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rrep">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="cache_node ≔ cache_node ∪ { destination_node ↦ path_header_packet[ { received_p } ] }" org.eventb.core.label="act7"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="d" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="e" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>

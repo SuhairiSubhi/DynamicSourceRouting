@@ -4,7 +4,6 @@
     <org.eventb.core.seesContext name="*" org.eventb.core.target="ProtocoleContext_0"/>
     <org.eventb.core.variable name="(" org.eventb.core.identifier="packets_in_transit"/>
     <org.eventb.core.variable name="+" org.eventb.core.identifier="nodes"/>
-    <org.eventb.core.variable name="-" org.eventb.core.identifier="id_packet"/>
     <org.eventb.core.variable name="1" org.eventb.core.identifier="type_packet"/>
     <org.eventb.core.variable name="3" org.eventb.core.identifier="source_node_packet"/>
     <org.eventb.core.variable name="4" org.eventb.core.identifier="destination_node_packet"/>
@@ -29,9 +28,6 @@
         <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="node_packet(received_p) = destination_node"/>
         <org.eventb.core.guard name=")" org.eventb.core.label="grd6" org.eventb.core.predicate="type_packet(received_p) ≠ RREQ"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
-    </org.eventb.core.event>
     <org.eventb.core.event name="B" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>
     </org.eventb.core.event>
@@ -50,5 +46,5 @@
         <org.eventb.core.guard name="2" org.eventb.core.label="grd6" org.eventb.core.predicate="node_packet(p) ≠ destination_node_packet(p)"/>
     </org.eventb.core.event>
     <org.eventb.core.variable name="H" org.eventb.core.identifier="node_packet"/>
-    <org.eventb.core.invariant name="I" org.eventb.core.label="inv2" org.eventb.core.predicate="node_packet ∈ packets_in_transit ⇸ nodes"/>
+    <org.eventb.core.invariant name="I" org.eventb.core.label="inv2" org.eventb.core.predicate="node_packet ∈ packets_in_transit → nodes"/>
 </org.eventb.core.machineFile>
