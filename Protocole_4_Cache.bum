@@ -26,7 +26,7 @@
     </org.eventb.core.event>
     <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rrep">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cache_node ≔ cache_node ∪ { destination_node ↦ path_header_packet[ { received_p } ] }" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="cache_node ≔ cache_node ∪ { destination_node ↦ path_header_packet[ { received_p } ] }" org.eventb.core.label="act8"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="e" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_event"/>

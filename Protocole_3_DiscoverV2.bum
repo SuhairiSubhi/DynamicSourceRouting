@@ -24,7 +24,7 @@
     <org.eventb.core.event name="d" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rrep">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep_or_basic_packet"/>
         <org.eventb.core.guard name="(" org.eventb.core.label="grd8" org.eventb.core.predicate="type_packet(received_p) = RREP"/>
-        <org.eventb.core.action name=")" org.eventb.core.assignment="discovered_routes ≔ discovered_routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="discovered_routes ≔ discovered_routes ∪ path_header_packet[ { received_p } ]" org.eventb.core.label="act7"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="h" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep_or_basic_packet"/>
@@ -35,6 +35,7 @@
     </org.eventb.core.event>
     <org.eventb.core.event name="Y" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_packet_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_packet_event"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="path_header_packet ≔ { p } ⩤ path_header_packet" org.eventb.core.label="act6"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="Z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rreq">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rreq_or_basic_packet"/>

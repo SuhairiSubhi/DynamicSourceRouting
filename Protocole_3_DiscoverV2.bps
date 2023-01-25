@@ -2,14 +2,14 @@
 <org.eventb.core.psFile>
     <org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="110" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="create_rreq_packet/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_rrep/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_rrep/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_rrep/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_basic_packet/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_basic_packet/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_rrep/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="116" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_rrep/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="116" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_rrep/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="116" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_basic_packet/grd8/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="115" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_basic_packet/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="115" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="add_node_event/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="add_node_event/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_packet_event/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_packet_event/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="113" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="forward_rreq/grd10/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="forward_rreq/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
     <org.eventb.core.psStatus name="forward_basic_packet/grd10/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="111" org.eventb.core.psManual="false"/>
