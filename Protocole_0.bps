@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="13" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_rreq_packet/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_rreq_packet/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_rreq_packet/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_rreq_packet/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_rreq_packet/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="14" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_basic_packet/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_basic_packet/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_basic_packet/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="create_basic_packet/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="19" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_event/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_event/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_event/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_node_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_node_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="add_node_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="add_node_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_packet_event/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_packet_event/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_packet_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_packet_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="18" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="20" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rreq_packet/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="32" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rreq_packet/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="32" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rreq_packet/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="32" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rreq_packet/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="32" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rreq_packet/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="32" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/grd3/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/act2/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_rrep_from_rreq/act3/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_basic_packet/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="35" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_basic_packet/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="35" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_basic_packet/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="35" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="create_basic_packet/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="35" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_event/grd3/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_event/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_event/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_node_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_node_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="add_node_event/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="add_node_event/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_packet_event/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_packet_event/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_packet_event/inv5/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_packet_event/inv6/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="23" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>

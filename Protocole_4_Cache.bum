@@ -20,11 +20,14 @@
     </org.eventb.core.event>
     <org.eventb.core.event name="b" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rreq_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rreq_packet"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd6" org.eventb.core.predicate="¬ (∃n1, r, route · n1 ∈ nodes ∧ route ∈ cache_node[ {source_node} ] ∧ r ∈ route ∧ (n1 ↦ destination_node) ∈ r)"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd6" org.eventb.core.predicate="¬ (∃n1, r, route · n1 ∈ nodes ∧ route ∈ cache_node[ {node1} ] ∧ r ∈ route ∧ (n1 ↦ node2) ∈ r)"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rreq_packet">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rreq_packet"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="cache_node ≔ cache_node ∪ { source_node_packet(received_p) ↦ path_header_packet[ { received_p } ] }" org.eventb.core.label="act7"/>
+    <org.eventb.core.event name="p" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rrep_from_rreq">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rrep_from_rreq"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rrep">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_rrep"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="cache_node ≔ cache_node ∪ { destination_node ↦ path_header_packet[ { received_p } ] }" org.eventb.core.label="act7"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="d" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>
@@ -35,8 +38,14 @@
     <org.eventb.core.event name="f" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_packet_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_packet_event"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="g" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_packet_event">
-        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_packet_event"/>
+    <org.eventb.core.event name="g" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rrep">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rrep"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="o" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_rreq">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_rreq"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="n" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward_basic_packet">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="forward_basic_packet"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="h" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_node_to_route">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="add_node_to_route"/>
@@ -47,7 +56,7 @@
     <org.eventb.core.invariant name="k" org.eventb.core.label="inv1" org.eventb.core.predicate="cache_node ∈ nodes ↔ ℙ(nodes ↔ nodes)"/>
     <org.eventb.core.event name="l" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_basic_packet"/>
-        <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="¬((source_node ↦ destination_node) ∈ routes) ⇒ (∃n1, r, route · n1 ∈ nodes ∧ route ∈ cache_node[ {source_node} ] ∧ r ∈ route ∧ (n1 ↦ destination_node) ∈ r)"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd7" org.eventb.core.predicate="¬((node1 ↦ node2) ∈ routes) ⇒ (∃n1, r, route · n1 ∈ nodes ∧ route ∈ cache_node[ {node1} ] ∧ r ∈ route ∧ (n1 ↦ node2) ∈ r)"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="m" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_basic_packet"/>

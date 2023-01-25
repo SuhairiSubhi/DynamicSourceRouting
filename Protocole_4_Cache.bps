@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-    <org.eventb.core.psStatus name="receive_rreq_packet/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="receive_rreq_packet/act7/WD" org.eventb.core.confidence="0" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="lose_node_event/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
-    <org.eventb.core.psStatus name="add_node_event/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="10" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="receive_rrep/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="41" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="lose_node_event/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="40" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="add_node_event/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="40" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>

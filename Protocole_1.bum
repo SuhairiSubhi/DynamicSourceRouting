@@ -14,15 +14,20 @@
     </org.eventb.core.event>
     <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rreq_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rreq_packet"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ source_node" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ node1" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="K" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_rrep_from_rreq">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_rrep_from_rreq"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd4" org.eventb.core.predicate="node_packet(rreq_p) = destination_node_packet(rreq_p)"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="J" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="create_basic_packet"/>
-        <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ source_node" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="node_packet(p) ≔ node1" org.eventb.core.label="act5"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_event">
+    <org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="receive_rrep_or_basic_packet">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="receive_event"/>
         <org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="node_packet(received_p) = destination_node"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd6" org.eventb.core.predicate="type_packet(received_p) ≠ RREQ"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="A" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lose_node_event">
         <org.eventb.core.refinesEvent name="'" org.eventb.core.target="lose_node_event"/>

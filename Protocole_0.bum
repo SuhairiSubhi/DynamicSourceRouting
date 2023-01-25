@@ -20,34 +20,42 @@
     <org.eventb.core.invariant name="0" org.eventb.core.label="inv5" org.eventb.core.predicate="source_node_packet ∈ packets_in_transit ⇸ nodes"/>
     <org.eventb.core.variable name="1" org.eventb.core.identifier="type_packet"/>
     <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="create_rreq_packet">
-        <org.eventb.core.parameter name="'" org.eventb.core.identifier="source_node"/>
-        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="source_node ∈ nodes"/>
-        <org.eventb.core.parameter name=")" org.eventb.core.identifier="destination_node"/>
-        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="destination_node ∈ nodes"/>
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="node1"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="node1 ∈ nodes"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="node2"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="node2 ∈ nodes"/>
         <org.eventb.core.action name="+" org.eventb.core.assignment="id_packet(p) ≔ randCounter " org.eventb.core.label="act1"/>
-        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="source_node ≠ destination_node "/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="node1 ≠ node2 "/>
         <org.eventb.core.parameter name="-" org.eventb.core.identifier="p"/>
         <org.eventb.core.guard name="." org.eventb.core.label="grd4" org.eventb.core.predicate="p ∈ PACKETS ∖ packets_in_transit"/>
         <org.eventb.core.action name="/" org.eventb.core.assignment="type_packet(p) ≔ RREQ" org.eventb.core.label="act2"/>
-        <org.eventb.core.action name="1" org.eventb.core.assignment="source_node_packet(p) ≔ source_node" org.eventb.core.label="act4"/>
-        <org.eventb.core.action name="2" org.eventb.core.assignment="destination_node_packet(p) ≔ destination_node" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="1" org.eventb.core.assignment="source_node_packet(p) ≔ node1" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="2" org.eventb.core.assignment="destination_node_packet(p) ≔ node2" org.eventb.core.label="act5"/>
         <org.eventb.core.action name="0" org.eventb.core.assignment="packets_in_transit ≔ packets_in_transit ∪ { p }" org.eventb.core.label="act3"/>
         <org.eventb.core.action name="3" org.eventb.core.assignment="randCounter ≔ randCounter + 1" org.eventb.core.label="act6"/>
     </org.eventb.core.event>
     <org.eventb.core.variable name="3" org.eventb.core.identifier="source_node_packet"/>
     <org.eventb.core.variable name="4" org.eventb.core.identifier="destination_node_packet"/>
     <org.eventb.core.invariant name="5" org.eventb.core.label="inv6" org.eventb.core.predicate="destination_node_packet ∈ packets_in_transit ⇸ nodes"/>
+    <org.eventb.core.event name="?" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="create_rrep_from_rreq">
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="rreq_p"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="rreq_p ∈ packets_in_transit"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="type_packet(rreq_p) ≔ RREP" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="source_node_packet(rreq_p) ≔ destination_node_packet(rreq_p)" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="destination_node_packet(rreq_p) ≔ source_node_packet(rreq_p)" org.eventb.core.label="act3"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="type_packet(rreq_p) = RREQ"/>
+    </org.eventb.core.event>
     <org.eventb.core.event name="&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="create_basic_packet">
-        <org.eventb.core.parameter name="'" org.eventb.core.identifier="source_node"/>
+        <org.eventb.core.parameter name="'" org.eventb.core.identifier="node1"/>
         <org.eventb.core.action name="(" org.eventb.core.assignment="type_packet(p) ≔ BASIC" org.eventb.core.label="act1"/>
-        <org.eventb.core.parameter name=")" org.eventb.core.identifier="destination_node"/>
+        <org.eventb.core.parameter name=")" org.eventb.core.identifier="node2"/>
         <org.eventb.core.parameter name="*" org.eventb.core.identifier="p"/>
-        <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="source_node ∈ nodes"/>
-        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="destination_node ∈ nodes"/>
-        <org.eventb.core.action name="-" org.eventb.core.assignment="source_node_packet(p) ≔ source_node" org.eventb.core.label="act2"/>
-        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="source_node ≠ destination_node"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="node1 ∈ nodes"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="node2 ∈ nodes"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="source_node_packet(p) ≔ node1" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="node1 ≠ node2"/>
         <org.eventb.core.guard name="/" org.eventb.core.label="grd4" org.eventb.core.predicate="p ∈ PACKETS ∖ packets_in_transit"/>
-        <org.eventb.core.action name="0" org.eventb.core.assignment="destination_node_packet(p) ≔ destination_node" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="destination_node_packet(p) ≔ node2" org.eventb.core.label="act3"/>
         <org.eventb.core.action name="1" org.eventb.core.assignment="packets_in_transit ≔ packets_in_transit ∪ { p }" org.eventb.core.label="act4"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="receive_event">
